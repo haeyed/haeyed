@@ -1,28 +1,15 @@
-const title = document.querySelector("div.hello:first-child h1");
+const title = document.querySelector(".hello h1");
+title.innerText = "Hello!";
 
-function handleTitleAuxclick() {
-  title.style.color = "blue";
-  title.innerText = "Right click!";
+window.onresize = function(event){
+  var innerWidth = window.innerWidth;
+  if (innerWidth <= "400") {
+      document.body.style.backgroundColor = "DodgerBlue";
+      title.style.color = "white";
+  } else if (innerWidth <= "700") {
+      document.body.style.backgroundColor = "Orchid";
+      title.style.color = "white";
+  } else if (innerWidth <= "1280") {
+       document.body.style.backgroundColor = "Orange"; 
+  }
 }
-
-function handleMouseEnter() {
-  title.style.color = "green";
-  title.innerText = "Mouse is here!";
-}
-
-function handleMouseLeave() {
-  title.style.color = "red";
-  title.innerText ="Mouse is gone!";
-}
-
-function handleWindowResize() {
-  title.style.color = "white";
-  document.body.style.backgroundColor = "black";
-  title.innerText = "Window Zoom";
-}
-
-title.addEventListener("auxclick", handleTitleAuxclick);
-title.addEventListener("mouseenter", handMouseEnter);
-title.addEventListener("mouseleave", handleMouseLeave);
-
-window.addEventListener("resize", handleWindowResize);
